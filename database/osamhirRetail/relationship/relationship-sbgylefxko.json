@@ -1,0 +1,29 @@
+{
+	"name": "relationship-sbgylefxko",
+	"properties": {
+		"Name": "relationship-sbgylefxko",
+		"EntityType": "RELATIONSHIP",
+		"Namespace": {
+			"DatabaseName": "osamhirRetail"
+		},
+		"Origin": {
+			"Type": "SPARK"
+		},
+		"FromTableName": "Customer",
+		"ToTableName": "Transaction",
+		"ColumnRelationshipInformations": [
+			{
+				"FromColumnName": "CustomerId",
+				"ToColumnName": "CustomerId"
+			}
+		],
+		"RelationshipType": 0,
+		"Properties": {
+			"DerivedModelRelationshipInfo": "{\"baseRelationship\":{\"fromEntity\":\"Customer.cdm.json/Customer\",\"toEntity\":\"Transaction.cdm.json/Transaction\",\"joinPairs\":[{\"fromAttribute\":\"CustomerId\",\"toAttribute\":\"CustomerId\"}]}}"
+		},
+		"PublishStatus": "PUBLISHED",
+		"ObjectVersion": 1,
+		"ObjectId": "082ab18c-72ce-4efc-8151-aff482d218e4"
+	},
+	"type": "RELATIONSHIP"
+}

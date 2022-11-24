@@ -1,0 +1,29 @@
+{
+	"name": "relationship-mczxsmhivi",
+	"properties": {
+		"Name": "relationship-mczxsmhivi",
+		"EntityType": "RELATIONSHIP",
+		"Namespace": {
+			"DatabaseName": "osamhirRetail"
+		},
+		"Origin": {
+			"Type": "SPARK"
+		},
+		"FromTableName": "Communication",
+		"ToTableName": "Document",
+		"ColumnRelationshipInformations": [
+			{
+				"FromColumnName": "CommunicationId",
+				"ToColumnName": "DocumentId"
+			}
+		],
+		"RelationshipType": 0,
+		"Properties": {
+			"DerivedModelRelationshipInfo": "{\"baseRelationship\":{\"fromEntity\":\"Communication.cdm.json/Communication\",\"toEntity\":\"Document.cdm.json/Document\",\"joinPairs\":[{\"fromAttribute\":\"CommunicationId\",\"toAttribute\":\"DocumentId\"}]}}"
+		},
+		"PublishStatus": "PUBLISHED",
+		"ObjectVersion": 1,
+		"ObjectId": "c5f1cec1-71e9-48f7-8c16-a7c2fec65854"
+	},
+	"type": "RELATIONSHIP"
+}

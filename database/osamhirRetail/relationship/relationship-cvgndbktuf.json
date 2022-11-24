@@ -1,0 +1,29 @@
+{
+	"name": "relationship-cvgndbktuf",
+	"properties": {
+		"Name": "relationship-cvgndbktuf",
+		"EntityType": "RELATIONSHIP",
+		"Namespace": {
+			"DatabaseName": "osamhirRetail"
+		},
+		"Origin": {
+			"Type": "SPARK"
+		},
+		"FromTableName": "Warehouse",
+		"ToTableName": "Order",
+		"ColumnRelationshipInformations": [
+			{
+				"FromColumnName": "WarehouseId",
+				"ToColumnName": "WarehouseId"
+			}
+		],
+		"RelationshipType": 0,
+		"Properties": {
+			"DerivedModelRelationshipInfo": "{\"baseRelationship\":{\"fromEntity\":\"Warehouse.cdm.json/Warehouse\",\"toEntity\":\"Order.cdm.json/Order\",\"joinPairs\":[{\"fromAttribute\":\"WarehouseId\",\"toAttribute\":\"WarehouseId\"}]}}"
+		},
+		"PublishStatus": "PUBLISHED",
+		"ObjectVersion": 1,
+		"ObjectId": "c7fbd1de-6a4a-4544-a966-3e8440ff5069"
+	},
+	"type": "RELATIONSHIP"
+}

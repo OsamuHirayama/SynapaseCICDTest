@@ -1,0 +1,17 @@
+{
+	"name": "ALL_table_external",
+	"properties": {
+		"content": {
+			"query": "CREATE EXTERNAL TABLE all_t1\n(\n\t[SalesOrderID] [int],\n\t[SalesOrderDetailID] [int],\n\t[OrderQty] [int],\n\t[ProductID] [int],\n\t[UnitPrice] [numeric](19, 4),\n\t[UnitPriceDiscount] [numeric](19, 4),\n\t[LineTotal] [numeric](38, 6),\n\t[rowguid] [varchar](8000),\n\t[ModifiedDate] [datetime2](7)\n)\nWITH (\n    LOCATION = '/SalesLT/SalesOrderDetail/*/*/*/*.parquet',\n    DATA_SOURCE = Data_Lake_ds,  \n    FILE_FORMAT = parquet_file_format\n) ",
+			"metadata": {
+				"language": "sql"
+			},
+			"currentConnection": {
+				"databaseName": "db1",
+				"poolName": "Built-in"
+			},
+			"resultLimit": 5000
+		},
+		"type": "SqlQuery"
+	}
+}

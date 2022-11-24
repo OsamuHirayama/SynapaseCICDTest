@@ -1,0 +1,10 @@
+{
+	"name": "synapse-ws-sql--osamuhirsynapsews",
+	"properties": {
+		"privateLinkResourceId": "/subscriptions/d1809bd2-c72a-4388-80fe-8984fb5d2dd6/resourceGroups/rg-osamuhir-japaneast-sql01/providers/Microsoft.Synapse/workspaces/osamuhirsynapsews",
+		"groupId": "sql",
+		"fqdns": [
+			"osamuhirsynapsews.ecea2034-1e4b-4f33-b245-b4f4b2e7928a.sql.azuresynapse.net"
+		]
+	}
+}

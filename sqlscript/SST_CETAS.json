@@ -1,0 +1,17 @@
+{
+	"name": "SST_CETAS",
+	"properties": {
+		"content": {
+			"query": "-- データベースコンテキスト移動 \nUSE db1\nGO\n-- CETAS 実行\n-- [DATA_SOURCE]および[FILE_FORMAT]は事前準備で作成したものを使用\n-- LOCATION に指定するフォルダは既存のものではダメ\nDROP EXTERNAL TABLE distinct_t1\nCREATE EXTERNAL TABLE distinct_t1\nWITH (\n    LOCATION = 'all/Address',\n    DATA_SOURCE = Data_Lake_ds,  \n    FILE_FORMAT = parquet_file_format\n)  \nAS\nwith t as (\n    select \n        *,\n        row_number() over(partition by SalesOrderID, SalesOrderDetailID order by ModifiedDate desc) as k\n    FROM OPENROWSET(BULK 'https://adlsosamuhir02.dfs.core.windows.net/sstcontainer01/SalesLT/SalesOrderDetail/*/*/*/*.parquet',\n    FORMAT='PARQUET') AS [r]\n)\nselect\n    *\nfrom t\nwhere k = 1;\n\nSELECT * FROM distinct_t1\nUNION\nSELECT * FROM distinct_t2",
+			"metadata": {
+				"language": "sql"
+			},
+			"currentConnection": {
+				"databaseName": "db1",
+				"poolName": "Built-in"
+			},
+			"resultLimit": 5000
+		},
+		"type": "SqlQuery"
+	}
+}

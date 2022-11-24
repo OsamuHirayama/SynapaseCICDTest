@@ -1,0 +1,29 @@
+{
+	"name": "relationship-wothkofwnl",
+	"properties": {
+		"Name": "relationship-wothkofwnl",
+		"EntityType": "RELATIONSHIP",
+		"Namespace": {
+			"DatabaseName": "osamhirRetail"
+		},
+		"Origin": {
+			"Type": "SPARK"
+		},
+		"FromTableName": "Customer",
+		"ToTableName": "Order",
+		"ColumnRelationshipInformations": [
+			{
+				"FromColumnName": "CustomerId",
+				"ToColumnName": "CustomerId"
+			}
+		],
+		"RelationshipType": 0,
+		"Properties": {
+			"DerivedModelRelationshipInfo": "{\"baseRelationship\":{\"fromEntity\":\"Customer.cdm.json/Customer\",\"toEntity\":\"Order.cdm.json/Order\",\"joinPairs\":[{\"fromAttribute\":\"CustomerId\",\"toAttribute\":\"CustomerId\"}]}}"
+		},
+		"PublishStatus": "PUBLISHED",
+		"ObjectVersion": 1,
+		"ObjectId": "054de4a4-2820-4adf-a89d-ef496aee5aea"
+	},
+	"type": "RELATIONSHIP"
+}

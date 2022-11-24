@@ -1,0 +1,29 @@
+{
+	"name": "relationship-qojhyhnjgl",
+	"properties": {
+		"Name": "relationship-qojhyhnjgl",
+		"EntityType": "RELATIONSHIP",
+		"Namespace": {
+			"DatabaseName": "Retail_x6l"
+		},
+		"Origin": {
+			"Type": "SPARK"
+		},
+		"FromTableName": "Activity",
+		"ToTableName": "CustomerActivity",
+		"ColumnRelationshipInformations": [
+			{
+				"FromColumnName": "ActivityId",
+				"ToColumnName": "ActivityId"
+			}
+		],
+		"RelationshipType": 0,
+		"Properties": {
+			"DerivedModelRelationshipInfo": "{\"baseRelationship\":{\"fromEntity\":\"Activity.cdm.json/Activity\",\"toEntity\":\"CustomerActivity.cdm.json/CustomerActivity\",\"joinPairs\":[{\"fromAttribute\":\"ActivityId\",\"toAttribute\":\"ActivityId\"}]}}"
+		},
+		"PublishStatus": "PUBLISHED",
+		"ObjectVersion": 1,
+		"ObjectId": "a8f9a20b-e06a-4acd-8177-e60cfb5d5e5e"
+	},
+	"type": "RELATIONSHIP"
+}

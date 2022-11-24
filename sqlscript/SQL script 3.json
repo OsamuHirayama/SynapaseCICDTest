@@ -1,0 +1,17 @@
+{
+	"name": "SQL script 3",
+	"properties": {
+		"content": {
+			"query": "IF NOT EXISTS (SELECT * FROM sys.external_file_formats WHERE name = 'SynapseParquetFormat') \n\tCREATE EXTERNAL FILE FORMAT [SynapseParquetFormat] \n\tWITH ( FORMAT_TYPE = PARQUET)\nGO\n\nIF NOT EXISTS (SELECT * FROM sys.external_data_sources WHERE name = 'sstcontainer01_adlsosamuhir02_dfs_core_windows_net') \n\tCREATE EXTERNAL DATA SOURCE [sstcontainer01_adlsosamuhir02_dfs_core_windows_net] \n\tWITH (\n\t\tLOCATION = 'abfss://sstcontainer01@adlsosamuhir02.dfs.core.windows.net' \n\t)\nGO\n\nCREATE EXTERNAL TABLE ext_SalesDetail (\n\t[SalesOrderID] int,\n\t[SalesOrderDetailID] int,\n\t[OrderQty] int,\n\t[ProductID] int,\n\t[UnitPrice] numeric(19,4),\n\t[UnitPriceDiscount] numeric(19,4),\n\t[LineTotal] numeric(38,6),\n\t[rowguid] nvarchar(4000),\n\t[ModifiedDate] datetime2(7)\n\t)\n\tWITH (\n\tLOCATION = 'SalesLT/SalesOrderDetail/**',\n\tDATA_SOURCE = [sstcontainer01_adlsosamuhir02_dfs_core_windows_net],\n\tFILE_FORMAT = [SynapseParquetFormat]\n\t)\nGO\n\n\nSELECT TOP 100 * FROM dbo.ext_SalesDetail\nGO",
+			"metadata": {
+				"language": "sql"
+			},
+			"currentConnection": {
+				"databaseName": "db1",
+				"poolName": "Built-in"
+			},
+			"resultLimit": 5000
+		},
+		"type": "SqlQuery"
+	}
+}

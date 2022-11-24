@@ -1,0 +1,29 @@
+{
+	"name": "relationship-kdsyaqynjp",
+	"properties": {
+		"Name": "relationship-kdsyaqynjp",
+		"EntityType": "RELATIONSHIP",
+		"Namespace": {
+			"DatabaseName": "osamhirRetail"
+		},
+		"Origin": {
+			"Type": "SPARK"
+		},
+		"FromTableName": "Channel",
+		"ToTableName": "Order",
+		"ColumnRelationshipInformations": [
+			{
+				"FromColumnName": "ChannelId",
+				"ToColumnName": "DistributionChannelId"
+			}
+		],
+		"RelationshipType": 0,
+		"Properties": {
+			"DerivedModelRelationshipInfo": "{\"baseRelationship\":{\"fromEntity\":\"Channel.cdm.json/Channel\",\"toEntity\":\"Order.cdm.json/Order\",\"joinPairs\":[{\"fromAttribute\":\"ChannelId\",\"toAttribute\":\"DistributionChannelId\"}]}}"
+		},
+		"PublishStatus": "PUBLISHED",
+		"ObjectVersion": 1,
+		"ObjectId": "1e03717e-f992-48fd-93cb-f1a252d4bc1b"
+	},
+	"type": "RELATIONSHIP"
+}

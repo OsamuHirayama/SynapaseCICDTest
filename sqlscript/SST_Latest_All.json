@@ -1,0 +1,17 @@
+{
+	"name": "SST_Latest_All",
+	"properties": {
+		"content": {
+			"query": "-- EXTERNAL DATA FORMAT 作成済み\n-- EXTERNAL DATA SOURCE 作成済み\n\n-- 最新日データを格納したフォルダのみを参照する外部テーブルの作成\n-- 前日分 外部テーブル削除 \nIF (EXISTS(SELECT * FROM sys.external_tables WHERE name = 'ext_SalesDetail')) \n\tBEGIN\n\t\tDROP EXTERNAL TABLE ext_SalesDetail\n\tEND\n\n-- 外部テーブルの作成\n-- 最新日の動的取得\ndeclare @latest_Date varchar(50)\nset @latest_Date = convert(varchar(4),year(getdate())) + '/' + convert(varchar(2),format(month(getdate()),'00')) + '/' + convert(varchar(2),format(day(getdate()),'00')) \n-- スクリプトのひな型は Synapse Studio で作成\nDECLARE @sqlstmt NVARCHAR(4000)\n\nset @sqlstmt =\nN'CREATE EXTERNAL TABLE ext_SalesDetail (\n\t[SalesOrderID] int,\n\t[SalesOrderDetailID] int,\n\t[OrderQty] int,\n\t[ProductID] int,\n\t[UnitPrice] numeric(19,4),\n\t[UnitPriceDiscount] numeric(19,4),\n\t[LineTotal] numeric(38,6),\n\t[rowguid] nvarchar(4000),\n\t[ModifiedDate] datetime2(7)\n\t)\n\tWITH (\n\tLOCATION =  ''SalesLT/SalesOrderDetail/' + @latest_Date + ''',\n\tDATA_SOURCE = [sstcontainer01_adlsosamuhir02_dfs_core_windows_net],\n\tFILE_FORMAT = [SynapseParquetFormat]\n\t)'\nEXEC sp_executesql @sqlstmt\n\n-- Merge ステートメントによる Upsert\n-- Merge は Preview 中\n-- https://docs.microsoft.com/ja-jp/sql/t-sql/statements/merge-transact-sql?view=azure-sqldw-latest&preserve-view=true\n\n-- 最新日付の一時テーブルを作成 (Merge で CTE が使用できないため)\nIF EXISTS (SELECT * FROM sys.tables WHERE object_id = OBJECT_ID(N'[temp_latestTable]'))\nBEGIN\n        DROP TABLE temp_latestTable\nEND\nCREATE TABLE temp_latestTable\nwith(DISTRIBUTION=HASH(SalesOrderID), CLUSTERED COLUMNSTORE INDEX)\nAS  \nwith t as \n\t(\n    \tselect *, row_number() over(partition by SalesOrderID, SalesOrderDetailID order by ModifiedDate desc) as k\n    \tFROM ext_SalesDetail AS [r]\n\t)\nselect    *\nfrom t\nwhere k = 1\n\nMERGE dbo.all_SalesDetail AS allTable  \nUSING \n(\n\tselect *\n\tfrom dbo.temp_latestTable\n) as latestTable\nON (allTable.SalesOrderID = latestTable.SalesOrderID and allTable.SalesOrderDetailID = latestTable.SalesOrderDetailID)  \nWHEN MATCHED\n    THEN UPDATE SET OrderQty = latestTable.OrderQty,\n\t\t\t\t\tProductID = latestTable.ProductID,\n\t\t\t\t\tUnitPrice = latestTable.UnitPrice,\n\t\t\t\t\tUnitPriceDiscount = latestTable.UnitPriceDiscount,\n\t\t\t\t\tLineTotal = latestTable.LineTotal,\n\t\t\t\t\tModifiedDate = latestTable.ModifiedDate\nWHEN NOT MATCHED\n\tTHEN\n      INSERT(\n\t\tSalesOrderID,\n\t\tSalesOrderDetailID,\n\t\tOrderQty,\n\t\tProductID,\n\t\tUnitPrice,\n\t\tUnitPriceDiscount,\n\t\tLineTotal,\n\t\trowguid,\n\t\tModifiedDate)  \n        VALUES(\n\t\tlatestTable.SalesOrderID,\n\t\tlatestTable.SalesOrderDetailID,\n\t\tlatestTable.OrderQty,\n\t\tlatestTable.ProductID,\n\t\tlatestTable.UnitPrice,\n\t\tlatestTable.UnitPriceDiscount,\n\t\tlatestTable.LineTotal,\n\t\tlatestTable.rowguid,\n\t\tlatestTable.ModifiedDate);\n",
+			"metadata": {
+				"language": "sql"
+			},
+			"currentConnection": {
+				"databaseName": "sstsql01",
+				"poolName": "sstsql01"
+			},
+			"resultLimit": 5000
+		},
+		"type": "SqlQuery"
+	}
+}

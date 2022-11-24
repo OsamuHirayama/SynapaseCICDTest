@@ -1,0 +1,17 @@
+{
+	"name": "SST_Proc02",
+	"properties": {
+		"content": {
+			"query": "USE db1\nGO\nCREATE PROCEDURE SST_Proc02 \n@allTabName nvarchar(255)\n,@distTabname nvarchar(255)\n, @sortKey1 nvarchar(255)\n, @sortKey2 nvarchar(255)\n, @modDate nvarchar(255)\nAS\nDECLARE @sqlstmt NVARCHAR(4000)\nSET NOCOUNT ON\nBEGIN\n    IF (EXISTS(SELECT * FROM sys.external_tables WHERE name = @distTabName)) BEGIN\n        SET @sqlstmt = N'DROP EXTERNAL TABLE ' + @distTabName\n        EXEC sp_executesql @sqlstmt\n    END\n    SET @sqlstmt = N'CREATE EXTERNAL TABLE '+ @distTabname +\n    ' WITH (\n        LOCATION = ''' + @distTabName + ''',\n        DATA_SOURCE = Data_Lake_ds,  \n        FILE_FORMAT = parquet_file_format\n    ) \n    AS\n    with t as (\n        select \n            *,\n            row_number() over(partition by ' + @sortKey1 + ' , ' + @sortKey2 + ' order by ' + @modDate + ' desc) as k\n        FROM ' + @allTabName + ' AS [r]\n    )\n    select\n        *\n    from t\n    where k = 1'\n    EXEC sp_executesql @sqlstmt\nEND",
+			"metadata": {
+				"language": "sql"
+			},
+			"currentConnection": {
+				"databaseName": "db1",
+				"poolName": "Built-in"
+			},
+			"resultLimit": 5000
+		},
+		"type": "SqlQuery"
+	}
+}

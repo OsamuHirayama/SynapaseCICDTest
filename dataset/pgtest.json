@@ -1,0 +1,30 @@
+{
+	"name": "pgtest",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "master_production",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "AzurePostgreSqlTable",
+		"schema": [
+			{
+				"name": "c1",
+				"type": "integer",
+				"precision": 0,
+				"scale": 0
+			},
+			{
+				"name": "c2",
+				"type": "character",
+				"precision": 0,
+				"scale": 0
+			}
+		],
+		"typeProperties": {
+			"schema": "public",
+			"table": "m_acc_sjt"
+		}
+	},
+	"type": "Microsoft.Synapse/workspaces/datasets"
+}

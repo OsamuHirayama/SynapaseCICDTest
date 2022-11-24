@@ -1,0 +1,28 @@
+{
+	"name": "Retail_x6l",
+	"properties": {
+		"Name": "Retail_x6l",
+		"EntityType": "DATABASE",
+		"Description": "",
+		"Origin": {
+			"Type": "SPARK"
+		},
+		"Properties": {
+			"DerivedModelDBInfo": "{\"ModelDirectives\":{\"BaseModel\":{\"Name\":\"Retail\",\"Version\":\"0.1.0\"}}}",
+			"IsSyMSCDMDatabase": true,
+			"x-ms-usageinfo": "AzureSynapseDatabaseTemplate"
+		},
+		"Source": {
+			"Provider": "ADLS",
+			"Location": "abfss://adlsfileosamuhir02@adlsosamuhir02.dfs.core.windows.net/Retail_x6l",
+			"Properties": {
+				"FormatType": "parquet",
+				"LinkedServiceName": "osamuhirsynapsews-WorkspaceDefaultStorage"
+			}
+		},
+		"PublishStatus": "PUBLISHED",
+		"ObjectVersion": 1,
+		"ObjectId": "55f95c79-227c-4e54-ab91-fb71617c85c4"
+	},
+	"type": "DATABASE"
+}

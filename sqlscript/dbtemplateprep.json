@@ -1,0 +1,17 @@
+{
+	"name": "dbtemplateprep",
+	"properties": {
+		"content": {
+			"query": "INSERT Customer values (000, '', 0, 0, 0, '00', 'TBD', 0, 81)\nINSERT Customer values (222, '', 2, 2, 2, '22', 'TBD', 2, 81)\nINSERT Customer values (333, '', 3, 3, 3, '33', 'TBD', 3, 81)\nINSERT Customer values (444, '', 4, 4, 4, '44', 'TBD', 4, 81)\nINSERT Customer values (555, '', 5, 5, 5, '55', 'TBD', 5, 81)\nINSERT Customer values (666, '', 6, 6, 6, '66', 'TBD', 6, 81)\nINSERT Customer values (777, '', 7, 7, 7, '77', 'TBD', 7, 81)\nINSERT Customer values (888, '', 8, 8, 8, '88', 'TBD', 8, 81)\nINSERT Customer values (999, '', 9, 9, 9, '99', 'TBD', 9, 81)\n\nselect * from customer\n\nINSERT Customer values (111, '', 1, 1, 1, '11', 'TBD', 1, 81)\n\n\nCREATE TABLE [dbo].[Customer]\n(\n\t[CustomerId] [bigint],\n\t[CustomerEstablishedDate] [date],\n\t[CustomerTypeId] [int],\n\t[ResponsibilityCenterId] [int],\n\t[LedgerId] [int],\n\t[LedgerAccountNumber] [varchar](16),\n\t[CustomerNote] [varchar](1024),\n\t[PartyId] [bigint],\n\t[GlobalLocationNumber] [decimal](13, 0)\n)\nWITH ( CLUSTERED COLUMNSTORE INDEX )  ",
+			"metadata": {
+				"language": "sql"
+			},
+			"currentConnection": {
+				"databaseName": "sstsql01",
+				"poolName": "sstsql01"
+			},
+			"resultLimit": 5000
+		},
+		"type": "SqlQuery"
+	}
+}

@@ -1,0 +1,28 @@
+{
+	"name": "osamhirRetail",
+	"properties": {
+		"Name": "osamhirRetail",
+		"EntityType": "DATABASE",
+		"Description": "",
+		"Origin": {
+			"Type": "SPARK"
+		},
+		"Properties": {
+			"DerivedModelDBInfo": "{\"ModelDirectives\":{\"BaseModel\":{\"Name\":\"Retail\",\"Version\":\"0.1.0\"}}}",
+			"IsSyMSCDMDatabase": true,
+			"x-ms-usageinfo": "AzureSynapseDatabaseTemplate"
+		},
+		"Source": {
+			"Provider": "ADLS",
+			"Location": "abfss://adlsfileosamuhir02@adlsosamuhir02.dfs.core.windows.net/osamhirRetail",
+			"Properties": {
+				"FormatType": "parquet",
+				"LinkedServiceName": "osamuhirsynapsews-WorkspaceDefaultStorage"
+			}
+		},
+		"PublishStatus": "PUBLISHED",
+		"ObjectVersion": 1,
+		"ObjectId": "3edcc42d-a47c-425c-90b2-fc1525c7d895"
+	},
+	"type": "DATABASE"
+}

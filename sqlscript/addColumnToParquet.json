@@ -1,0 +1,17 @@
+{
+	"name": "addColumnToParquet",
+	"properties": {
+		"content": {
+			"query": "\n-- 列追加前の parquet ファイルのみを基にした外部テーブル作成\nCREATE EXTERNAL TABLE org_t1\nWITH (\n    LOCATION = 'all/Address',\n    DATA_SOURCE = Data_Lake_ds,  \n    FILE_FORMAT = parquet_file_format\n)  \nAS\nselect SalesOrderID\nfrom distinct_t1;\n\nSELECT * FROM org_t1\n\n-- 列追加後の parquet ファイルのみを基にした外部テーブルを作成\nCREATE EXTERNAL TABLE new_t1\nWITH (\n    LOCATION = 'all/newt1',\n    DATA_SOURCE = Data_Lake_ds,  \n    FILE_FORMAT = parquet_file_format\n)  \nAS\nselect SalesOrderID, SalesOrderDetailID\nfrom distinct_t1;\n\n-- 両テーブルを結合して (追加列の値は明示的に指定する) 外部テーブルを作成する\nCREATE EXTERNAL TABLE newall_t1\nWITH (\n    LOCATION = 'all/newtall1',\n    DATA_SOURCE = Data_Lake_ds,  \n    FILE_FORMAT = parquet_file_format\n)  \nAS\nselect * from new_t1\nUNION all\nselect *,1 from org_t1;\n\nSELECT * from newall_t1\n",
+			"metadata": {
+				"language": "sql"
+			},
+			"currentConnection": {
+				"databaseName": "db1",
+				"poolName": "Built-in"
+			},
+			"resultLimit": 5000
+		},
+		"type": "SqlQuery"
+	}
+}

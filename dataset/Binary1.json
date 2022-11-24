@@ -1,0 +1,19 @@
+{
+	"name": "Binary1",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "AzureDataLakeStorage1",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "Binary",
+		"typeProperties": {
+			"location": {
+				"type": "AzureBlobFSLocation",
+				"folderPath": "distinct_t1/dummy01",
+				"fileSystem": "sstcontainer01"
+			}
+		}
+	},
+	"type": "Microsoft.Synapse/workspaces/datasets"
+}

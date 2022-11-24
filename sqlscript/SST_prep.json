@@ -1,0 +1,17 @@
+{
+	"name": "SST_prep",
+	"properties": {
+		"content": {
+			"query": "-- データベースを作成 (論理的に作成するのみで、実態は存在しません)\nCREATE DATABASE db1\nGO\n-- データベースコンテキストを作成したデータベースへ移動\nUSE db1\nGO\n-- Master Key の作成\nCREATE MASTER KEY ENCRYPTION BY PASSWORD = 'P@ssw0rd!$'\n-- 資格情報の作成\n-- Storage Account の Access Key をコピーして [SECRET] に指定\nDROP DATABASE SCOPED CREDENTIAL storage_credential\nGO\nCREATE DATABASE SCOPED CREDENTIAL storage_credential\nWITH IDENTITY='SHARED ACCESS SIGNATURE',  \n\tSECRET = 'sp=rwle&st=2022-07-08T01:28:51Z&se=2022-12-31T09:28:51Z&spr=https&sv=2021-06-08&sr=c&sig=SY9pdaGl3A8H%2FLPFb9g326tJSSu4wdE5JbZ8u5LIMtQ%3D'\nGO\n-- 外部データソースの作成\n-- [LOCATION] には コンテナ名までを指定\n-- [CREDENTIAL] には前ステップで作成したものを指定\nDROP EXTERNAL DATA SOURCE Data_Lake_ds\nGO\nCREATE EXTERNAL DATA SOURCE Data_Lake_ds\nWITH\n(    \n    LOCATION         = 'https://adlsosamuhir02.dfs.core.windows.net/sstcontainer01'\n\t--LOCATION         = 'https://<storage>.<dfs>.core.windows.net/<container>'\n         , CREDENTIAL = storage_credential\n)\nGO\n-- 外部ファイル形式の作成\nCREATE EXTERNAL FILE FORMAT parquet_file_format\nWITH\n(  \n    FORMAT_TYPE = PARQUET,\n    DATA_COMPRESSION = 'org.apache.hadoop.io.compress.SnappyCodec'\n)\nGO",
+			"metadata": {
+				"language": "sql"
+			},
+			"currentConnection": {
+				"databaseName": "db1",
+				"poolName": "Built-in"
+			},
+			"resultLimit": 5000
+		},
+		"type": "SqlQuery"
+	}
+}

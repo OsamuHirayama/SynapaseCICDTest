@@ -1,0 +1,17 @@
+{
+	"name": "SST_Proc",
+	"properties": {
+		"content": {
+			"query": "\nUSE db1\nGO\n\nCREATE PROC SST_Proc01\nAS\nBEGIN\n    IF (EXISTS(SELECT * FROM sys.external_tables WHERE name = 'distinct_t1')) BEGIN\n        DROP EXTERNAL TABLE distinct_t1\n    END\n    CREATE EXTERNAL TABLE distinct_t1\n    WITH (\n        LOCATION = 'all/Address',\n        DATA_SOURCE = Data_Lake_ds,  \n        FILE_FORMAT = parquet_file_format\n    )  \n    AS\n    with t as (\n        select \n            *,\n            row_number() over(partition by SalesOrderID, SalesOrderDetailID order by ModifiedDate desc) as k\n        FROM OPENROWSET(BULK 'https://adlsosamuhir02.dfs.core.windows.net/sstcontainer01/SalesLT/SalesOrderDetail/*/*/*/*.parquet',\n        FORMAT='PARQUET') AS [r]\n    )\n    select\n        *\n    from t\n    where k = 1\nEND",
+			"metadata": {
+				"language": "sql"
+			},
+			"currentConnection": {
+				"databaseName": "db1",
+				"poolName": "Built-in"
+			},
+			"resultLimit": 5000
+		},
+		"type": "SqlQuery"
+	}
+}

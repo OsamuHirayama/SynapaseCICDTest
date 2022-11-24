@@ -1,0 +1,17 @@
+{
+	"name": "SQL script 6",
+	"properties": {
+		"content": {
+			"query": "select * from new_t1\n\nselect *, '' as new_col from new_t1\n\nselect SalesOrderID, ' ' as new_col, SalesOrderDetailID from new_t1\n\n\nCREATE EXTERNAL TABLE new_t2\nWITH (\n    LOCATION = 'all/newt2',\n    DATA_SOURCE = Data_Lake_ds,  \n    FILE_FORMAT = parquet_file_format\n)  \nAS\nselect SalesOrderID, ' ' as new_col, SalesOrderDetailID \nfrom new_t1\n\nselect * from new_t2\n",
+			"metadata": {
+				"language": "sql"
+			},
+			"currentConnection": {
+				"databaseName": "db1",
+				"poolName": "Built-in"
+			},
+			"resultLimit": 5000
+		},
+		"type": "SqlQuery"
+	}
+}
