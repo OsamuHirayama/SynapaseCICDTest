@@ -1,0 +1,31 @@
+{
+	"name": "LeoSRC",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "osamuhirsynapsews-WorkspaceDefaultStorage",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "DelimitedText",
+		"typeProperties": {
+			"location": {
+				"type": "AzureBlobFSLocation",
+				"fileName": "escapetest.csv",
+				"folderPath": "EscapeTestSRC",
+				"fileSystem": "leostorage01"
+			},
+			"columnDelimiter": ",",
+			"escapeChar": "",
+			"quoteChar": ""
+		},
+		"schema": [
+			{
+				"type": "String"
+			},
+			{
+				"type": "String"
+			}
+		]
+	},
+	"type": "Microsoft.Synapse/workspaces/datasets"
+}
