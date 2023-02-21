@@ -1,0 +1,22 @@
+{
+	"name": "Leodb",
+	"properties": {
+		"Name": "Leodb",
+		"EntityType": "DATABASE",
+		"Origin": {
+			"Type": "SPARK"
+		},
+		"Properties": {
+			"IsSyMSCDMDatabase": true
+		},
+		"Source": {
+			"Provider": "ADLS",
+			"Location": "abfss://adlsfileosamuhir02@adlsosamuhir02.dfs.core.windows.net/Leodb",
+			"Properties": {
+				"FormatType": "csv",
+				"LinkedServiceName": "osamuhirsynapsews-WorkspaceDefaultStorage"
+			}
+		}
+	},
+	"type": "DATABASE"
+}
