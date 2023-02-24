@@ -1,0 +1,31 @@
+{
+	"name": "sstexcel",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "SSTLinkedService",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "Excel",
+		"typeProperties": {
+			"sheetName": "Sheet1",
+			"location": {
+				"type": "AzureBlobFSLocation",
+				"fileName": "ssttest01.xlsx",
+				"folderPath": "exceltest",
+				"fileSystem": "sststorage"
+			}
+		},
+		"schema": [
+			{
+				"type": "String"
+			},
+			{
+				"type": "String"
+			},
+			{
+				"type": "String"
+			}
+		]
+	}
+}
