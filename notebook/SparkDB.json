@@ -1,5 +1,5 @@
 {
-	"name": "Leonote1",
+	"name": "SparkDB",
 	"properties": {
 		"nbformat": 4,
 		"nbformat_minor": 2,
@@ -17,7 +17,7 @@
 				"spark.dynamicAllocation.enabled": "false",
 				"spark.dynamicAllocation.minExecutors": "2",
 				"spark.dynamicAllocation.maxExecutors": "2",
-				"spark.autotune.trackingId": "f4cf02e9-9bb3-462c-a3dd-98dc68ae6289"
+				"spark.autotune.trackingId": "730c2c7b-2eb3-4ebc-a777-7f13ede62483"
 			}
 		},
 		"metadata": {
@@ -54,18 +54,9 @@
 					"collapsed": false
 				},
 				"source": [
-					"-- METHOD 3 - Managed Table\r\n",
-					"CREATE TABLE salesTable_manag3 (\r\n",
-					"order_id INT, \r\n",
-					"order_date DATE, \r\n",
-					"item_type STRING,\r\n",
-					"sales_channel STRING, \r\n",
-					"units_sold FLOAT,\r\n",
-					"unit_price FLOAT,\r\n",
-					"total_revenue FLOAT\r\n",
-					");"
+					"CREATE DATABASE SparkdbTest"
 				],
-				"execution_count": 6
+				"execution_count": 10
 			},
 			{
 				"cell_type": "code",
@@ -82,12 +73,31 @@
 					"collapsed": false
 				},
 				"source": [
-					"CREATE TABLE table1 (\r\n",
+					"USE SparkdbTest"
+				],
+				"execution_count": 11
+			},
+			{
+				"cell_type": "code",
+				"metadata": {
+					"jupyter": {
+						"source_hidden": false,
+						"outputs_hidden": false
+					},
+					"nteract": {
+						"transient": {
+							"deleting": false
+						}
+					},
+					"collapsed": false
+				},
+				"source": [
+					"CREATE TABLE sparkTable (\r\n",
 					"`番号` INT,\r\n",
 					"`文字列` string\r\n",
 					");"
 				],
-				"execution_count": 9
+				"execution_count": 12
 			},
 			{
 				"cell_type": "code",
@@ -104,28 +114,28 @@
 					"collapsed": false
 				},
 				"source": [
-					"insert into table1 values (1)"
+					"insert into sparkTable values (1, 'AA')"
+				],
+				"execution_count": 13
+			},
+			{
+				"cell_type": "code",
+				"metadata": {
+					"jupyter": {
+						"source_hidden": false,
+						"outputs_hidden": false
+					},
+					"nteract": {
+						"transient": {
+							"deleting": false
+						}
+					},
+					"collapsed": false
+				},
+				"source": [
+					"SELECT * FROM sparkTable"
 				],
 				"execution_count": 14
-			},
-			{
-				"cell_type": "code",
-				"metadata": {
-					"jupyter": {
-						"source_hidden": false,
-						"outputs_hidden": false
-					},
-					"nteract": {
-						"transient": {
-							"deleting": false
-						}
-					},
-					"collapsed": false
-				},
-				"source": [
-					"create database leospark"
-				],
-				"execution_count": 6
 			},
 			{
 				"cell_type": "code",

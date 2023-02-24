@@ -5,10 +5,6 @@
 		"typeProperties": {
 			"sources": [
 				{
-					"dataset": {
-						"referenceName": "sst_upsert",
-						"type": "DatasetReference"
-					},
 					"name": "source1"
 				}
 			],
@@ -30,8 +26,11 @@
 				"source(allowSchemaDrift: true,",
 				"     validateSchema: false,",
 				"     limit: 100,",
-				"     ignoreNoFilesFound: false,",
-				"     format: 'parquet') ~> source1",
+				"     store: 'synapse',",
+				"     databaseType: 'spark',",
+				"     format: 'table',",
+				"     database: 'leospark',",
+				"     tableName: 'table1') ~> source1",
 				"source1 alterRow(upsertIf(true())) ~> alterRow1",
 				"alterRow1 sink(allowSchemaDrift: true,",
 				"     validateSchema: false,",
