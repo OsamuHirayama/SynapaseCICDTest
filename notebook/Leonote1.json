@@ -17,15 +17,15 @@
 				"spark.dynamicAllocation.enabled": "false",
 				"spark.dynamicAllocation.minExecutors": "2",
 				"spark.dynamicAllocation.maxExecutors": "2",
-				"spark.autotune.trackingId": "1a09cd2f-7d93-480c-bd90-6a8e13e2283f"
+				"spark.autotune.trackingId": "f4cf02e9-9bb3-462c-a3dd-98dc68ae6289"
 			}
 		},
 		"metadata": {
 			"saveOutput": true,
 			"enableDebugMode": false,
 			"kernelspec": {
-				"name": "synapse_sparksql",
-				"display_name": "Synapse SQL"
+				"name": "synapse_pyspark",
+				"display_name": "Synapse PySpark"
 			},
 			"language_info": {
 				"name": "sql"
@@ -83,10 +83,11 @@
 				},
 				"source": [
 					"CREATE TABLE table1 (\r\n",
-					"`番号` INT\r\n",
+					"`番号` INT,\r\n",
+					"`文字列` string\r\n",
 					");"
 				],
-				"execution_count": 12
+				"execution_count": 9
 			},
 			{
 				"cell_type": "code",
@@ -122,9 +123,47 @@
 					"collapsed": false
 				},
 				"source": [
-					"select * from table1 "
+					"create database leospark"
 				],
-				"execution_count": 15
+				"execution_count": 6
+			},
+			{
+				"cell_type": "code",
+				"metadata": {
+					"jupyter": {
+						"source_hidden": false,
+						"outputs_hidden": false
+					},
+					"nteract": {
+						"transient": {
+							"deleting": false
+						}
+					},
+					"collapsed": false
+				},
+				"source": [
+					"use leospark"
+				],
+				"execution_count": 7
+			},
+			{
+				"cell_type": "code",
+				"metadata": {
+					"jupyter": {
+						"source_hidden": false,
+						"outputs_hidden": false
+					},
+					"nteract": {
+						"transient": {
+							"deleting": false
+						}
+					},
+					"collapsed": false
+				},
+				"source": [
+					"select * from dbo.table1 "
+				],
+				"execution_count": 4
 			}
 		]
 	}
