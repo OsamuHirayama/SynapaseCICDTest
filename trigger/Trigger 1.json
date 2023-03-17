@@ -9,6 +9,12 @@
 					"referenceName": "sst2_sample1",
 					"type": "PipelineReference"
 				}
+			},
+			{
+				"pipelineReference": {
+					"referenceName": "SST_CETAS_execute",
+					"type": "PipelineReference"
+				}
 			}
 		],
 		"type": "ScheduleTrigger",
