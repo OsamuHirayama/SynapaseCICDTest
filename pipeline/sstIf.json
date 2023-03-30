@@ -164,7 +164,7 @@
 				"typeProperties": {
 					"variableName": "MM",
 					"value": {
-						"value": "@substring(pipeline().parameters.yearMonth, 3, 2)",
+						"value": "@substring(pipeline().parameters.yearMonth, 4, 2)",
 						"type": "Expression"
 					}
 				}
