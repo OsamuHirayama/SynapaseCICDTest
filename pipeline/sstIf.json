@@ -3,17 +3,17 @@
 	"properties": {
 		"activities": [
 			{
-				"name": "If Condition1",
+				"name": "CheckYearandMonth",
 				"type": "IfCondition",
 				"dependsOn": [
 					{
-						"activity": "Set variable2",
+						"activity": "SubstringMonth",
 						"dependencyConditions": [
 							"Succeeded"
 						]
 					},
 					{
-						"activity": "Set variable1",
+						"activity": "SubstringYear",
 						"dependencyConditions": [
 							"Succeeded"
 						]
@@ -28,7 +28,7 @@
 				}
 			},
 			{
-				"name": "Set variable1",
+				"name": "SubstringYear",
 				"type": "SetVariable",
 				"dependsOn": [],
 				"userProperties": [],
@@ -41,7 +41,7 @@
 				}
 			},
 			{
-				"name": "Set variable2",
+				"name": "SubstringMonth",
 				"type": "SetVariable",
 				"dependsOn": [],
 				"userProperties": [],
