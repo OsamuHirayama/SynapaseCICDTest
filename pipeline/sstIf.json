@@ -22,7 +22,7 @@
 				"userProperties": [],
 				"typeProperties": {
 					"expression": {
-						"value": "@and(contains(variables('YYYY'), '2023'), contains(variables('MM'), '03'))\n",
+						"value": "@and(contains(variables('YYYY'), variables('YearArray')), contains(variables('MM'), variables('MonthArray')))",
 						"type": "Expression"
 					}
 				}
@@ -52,6 +52,47 @@
 						"type": "Expression"
 					}
 				}
+			},
+			{
+				"name": "ForEach1",
+				"type": "ForEach",
+				"dependsOn": [],
+				"userProperties": [],
+				"typeProperties": {
+					"activities": [
+						{
+							"name": "Set variable3",
+							"type": "SetVariable",
+							"dependsOn": [],
+							"userProperties": []
+						},
+						{
+							"name": "Set variable4",
+							"type": "SetVariable",
+							"dependsOn": [],
+							"userProperties": []
+						},
+						{
+							"name": "If Condition2",
+							"type": "IfCondition",
+							"dependsOn": [
+								{
+									"activity": "Set variable3",
+									"dependencyConditions": [
+										"Succeeded"
+									]
+								},
+								{
+									"activity": "Set variable4",
+									"dependencyConditions": [
+										"Succeeded"
+									]
+								}
+							],
+							"userProperties": []
+						}
+					]
+				}
 			}
 		],
 		"parameters": {
@@ -66,6 +107,33 @@
 			},
 			"MM": {
 				"type": "String"
+			},
+			"MonthArray": {
+				"type": "Array",
+				"defaultValue": [
+					"01",
+					"02",
+					"03",
+					"04",
+					"05",
+					"06",
+					"07",
+					"08",
+					"09",
+					"10",
+					"11",
+					"12"
+				]
+			},
+			"YearArray": {
+				"type": "Array",
+				"defaultValue": [
+					"2021",
+					"2022",
+					"2023",
+					"2024",
+					"2025"
+				]
 			}
 		},
 		"annotations": []
