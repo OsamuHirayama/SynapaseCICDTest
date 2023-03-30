@@ -1,0 +1,73 @@
+{
+	"name": "sstIf",
+	"properties": {
+		"activities": [
+			{
+				"name": "If Condition1",
+				"type": "IfCondition",
+				"dependsOn": [
+					{
+						"activity": "Set variable2",
+						"dependencyConditions": [
+							"Succeeded"
+						]
+					},
+					{
+						"activity": "Set variable1",
+						"dependencyConditions": [
+							"Succeeded"
+						]
+					}
+				],
+				"userProperties": [],
+				"typeProperties": {
+					"expression": {
+						"value": "@and(contains(variables('YYYY'), '2023'), contains(variables('MM'), '03'))\n",
+						"type": "Expression"
+					}
+				}
+			},
+			{
+				"name": "Set variable1",
+				"type": "SetVariable",
+				"dependsOn": [],
+				"userProperties": [],
+				"typeProperties": {
+					"variableName": "YYYY",
+					"value": {
+						"value": "@substring(pipeline().parameters.yearMonth, 0, 4)",
+						"type": "Expression"
+					}
+				}
+			},
+			{
+				"name": "Set variable2",
+				"type": "SetVariable",
+				"dependsOn": [],
+				"userProperties": [],
+				"typeProperties": {
+					"variableName": "MM",
+					"value": {
+						"value": "@substring(pipeline().parameters.yearMonth, 3, 2)",
+						"type": "Expression"
+					}
+				}
+			}
+		],
+		"parameters": {
+			"yearMonth": {
+				"type": "string",
+				"defaultValue": "202303"
+			}
+		},
+		"variables": {
+			"YYYY": {
+				"type": "String"
+			},
+			"MM": {
+				"type": "String"
+			}
+		},
+		"annotations": []
+	}
+}
