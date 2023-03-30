@@ -1,0 +1,20 @@
+{
+	"name": "Parquet3",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "SSTLinkedService",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "Parquet",
+		"typeProperties": {
+			"location": {
+				"type": "AzureBlobFSLocation",
+				"folderPath": "false",
+				"fileSystem": "sststorage"
+			},
+			"compressionCodec": "snappy"
+		},
+		"schema": []
+	}
+}
