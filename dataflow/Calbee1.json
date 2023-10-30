@@ -23,9 +23,6 @@
 			],
 			"transformations": [],
 			"scriptLines": [
-				"parameters{",
-				"     パラメーター1 as string",
-				"}",
 				"source(output(",
 				"          TIMESTAMP as string,",
 				"          PreciseTimeStamp as string,",
