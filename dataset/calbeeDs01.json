@@ -1,0 +1,555 @@
+{
+	"name": "calbeeDs01",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "CalbeeLinked01",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "DelimitedText",
+		"typeProperties": {
+			"location": {
+				"type": "AzureBlobFSLocation",
+				"fileSystem": "calbee01"
+			},
+			"columnDelimiter": ",",
+			"escapeChar": "\\",
+			"firstRowAsHeader": true,
+			"quoteChar": "\""
+		},
+		"schema": [
+			{
+				"name": "TIMESTAMP",
+				"type": "String"
+			},
+			{
+				"name": "PreciseTimeStamp",
+				"type": "String"
+			},
+			{
+				"name": "ClusterName",
+				"type": "String"
+			},
+			{
+				"name": "NodeRole",
+				"type": "String"
+			},
+			{
+				"name": "MachineName",
+				"type": "String"
+			},
+			{
+				"name": "NodeName",
+				"type": "String"
+			},
+			{
+				"name": "AppName",
+				"type": "String"
+			},
+			{
+				"name": "AppTypeName",
+				"type": "String"
+			},
+			{
+				"name": "LogicalServerName",
+				"type": "String"
+			},
+			{
+				"name": "SubscriptionId",
+				"type": "String"
+			},
+			{
+				"name": "ResourceGroup",
+				"type": "String"
+			},
+			{
+				"name": "code_package_version",
+				"type": "String"
+			},
+			{
+				"name": "end_utc_date",
+				"type": "String"
+			},
+			{
+				"name": "start_utc_date",
+				"type": "String"
+			},
+			{
+				"name": "name",
+				"type": "String"
+			},
+			{
+				"name": "state",
+				"type": "String"
+			},
+			{
+				"name": "managed_server_id",
+				"type": "String"
+			},
+			{
+				"name": "customer_subscription_id",
+				"type": "String"
+			},
+			{
+				"name": "resource_group",
+				"type": "String"
+			},
+			{
+				"name": "resource_tags",
+				"type": "String"
+			},
+			{
+				"name": "admin_login_name",
+				"type": "String"
+			},
+			{
+				"name": "admin_login_password",
+				"type": "String"
+			},
+			{
+				"name": "server_slice_binding_name",
+				"type": "String"
+			},
+			{
+				"name": "azure_dns_record_name",
+				"type": "String"
+			},
+			{
+				"name": "azure_provisioning_dns_record_name",
+				"type": "String"
+			},
+			{
+				"name": "vnet_dns_record_name",
+				"type": "String"
+			},
+			{
+				"name": "subnet_id",
+				"type": "String"
+			},
+			{
+				"name": "edition",
+				"type": "String"
+			},
+			{
+				"name": "service_level_objective",
+				"type": "String"
+			},
+			{
+				"name": "dropped_date",
+				"type": "String"
+			},
+			{
+				"name": "request_id",
+				"type": "String"
+			},
+			{
+				"name": "next_successor",
+				"type": "String"
+			},
+			{
+				"name": "create_time",
+				"type": "String"
+			},
+			{
+				"name": "last_update_time",
+				"type": "String"
+			},
+			{
+				"name": "last_state_change_time",
+				"type": "String"
+			},
+			{
+				"name": "concurrency_token",
+				"type": "String"
+			},
+			{
+				"name": "last_exception",
+				"type": "String"
+			},
+			{
+				"name": "is_stable_state",
+				"type": "String"
+			},
+			{
+				"name": "is_error_state",
+				"type": "String"
+			},
+			{
+				"name": "fsm_extension_data",
+				"type": "String"
+			},
+			{
+				"name": "fsm_version",
+				"type": "String"
+			},
+			{
+				"name": "fsm_instance_id",
+				"type": "String"
+			},
+			{
+				"name": "fsm_context_instance_name",
+				"type": "String"
+			},
+			{
+				"name": "fsm_timer_event_version",
+				"type": "String"
+			},
+			{
+				"name": "storage_account_name",
+				"type": "String"
+			},
+			{
+				"name": "storage_container_name",
+				"type": "String"
+			},
+			{
+				"name": "backup_storage_account_name",
+				"type": "String"
+			},
+			{
+				"name": "backup_storage_container_name",
+				"type": "String"
+			},
+			{
+				"name": "physical_instance_name",
+				"type": "String"
+			},
+			{
+				"name": "private_cluster_tenant_ring_name",
+				"type": "String"
+			},
+			{
+				"name": "private_cluster_id",
+				"type": "String"
+			},
+			{
+				"name": "auto_tuning_settings_id",
+				"type": "String"
+			},
+			{
+				"name": "identity_url",
+				"type": "String"
+			},
+			{
+				"name": "identity_principal_id",
+				"type": "String"
+			},
+			{
+				"name": "identity_tenant_id",
+				"type": "String"
+			},
+			{
+				"name": "admin_login_change_time",
+				"type": "String"
+			},
+			{
+				"name": "state_billability",
+				"type": "String"
+			},
+			{
+				"name": "last_state_billability_change_time",
+				"type": "String"
+			},
+			{
+				"name": "billing_start_time",
+				"type": "String"
+			},
+			{
+				"name": "vcore_count",
+				"type": "String"
+			},
+			{
+				"name": "sql_server_license",
+				"type": "String"
+			},
+			{
+				"name": "reserved_storage_size_gb",
+				"type": "String"
+			},
+			{
+				"name": "hardware_family",
+				"type": "String"
+			},
+			{
+				"name": "telemetry_storage_account_name",
+				"type": "String"
+			},
+			{
+				"name": "telemetry_storage_container_name",
+				"type": "String"
+			},
+			{
+				"name": "identity_client_id",
+				"type": "String"
+			},
+			{
+				"name": "encryption_protector_type",
+				"type": "String"
+			},
+			{
+				"name": "last_encryption_protector_update",
+				"type": "String"
+			},
+			{
+				"name": "collation",
+				"type": "String"
+			},
+			{
+				"name": "trace_flags",
+				"type": "String"
+			},
+			{
+				"name": "configuration_parameters",
+				"type": "String"
+			},
+			{
+				"name": "dns_zone",
+				"type": "String"
+			},
+			{
+				"name": "public_ip",
+				"type": "String"
+			},
+			{
+				"name": "azure_secondary_dns_record_name",
+				"type": "String"
+			},
+			{
+				"name": "rg_instance_settings_overrides",
+				"type": "String"
+			},
+			{
+				"name": "rg_database_settings_overrides",
+				"type": "String"
+			},
+			{
+				"name": "rg_slo_property_bag_overrides",
+				"type": "String"
+			},
+			{
+				"name": "additional_replica_storage_account_name",
+				"type": "String"
+			},
+			{
+				"name": "additional_replica_storage_container_name",
+				"type": "String"
+			},
+			{
+				"name": "log_storage_account_name",
+				"type": "String"
+			},
+			{
+				"name": "log_storage_container_name",
+				"type": "String"
+			},
+			{
+				"name": "create_mode",
+				"type": "String"
+			},
+			{
+				"name": "restore_point_in_time",
+				"type": "String"
+			},
+			{
+				"name": "source_managed_server_name",
+				"type": "String"
+			},
+			{
+				"name": "proxy_override",
+				"type": "String"
+			},
+			{
+				"name": "backup_storage_usage_gb",
+				"type": "String"
+			},
+			{
+				"name": "last_backup_storage_usage_event_timestamp",
+				"type": "String"
+			},
+			{
+				"name": "db_role_placement_rules",
+				"type": "String"
+			},
+			{
+				"name": "managed_instance_pool_id",
+				"type": "String"
+			},
+			{
+				"name": "timezone_id",
+				"type": "String"
+			},
+			{
+				"name": "custom_maintenance_window_scheduler_pattern",
+				"type": "String"
+			},
+			{
+				"name": "preserved_service_master_key",
+				"type": "String"
+			},
+			{
+				"name": "read_scale_units",
+				"type": "String"
+			},
+			{
+				"name": "backup_storage_account_type",
+				"type": "String"
+			},
+			{
+				"name": "SourceNamespace",
+				"type": "String"
+			},
+			{
+				"name": "SourceMoniker",
+				"type": "String"
+			},
+			{
+				"name": "SourceVersion",
+				"type": "String"
+			},
+			{
+				"name": "minimal_tls_version",
+				"type": "String"
+			},
+			{
+				"name": "zone_redundant",
+				"type": "String"
+			},
+			{
+				"name": "bill_vcores",
+				"type": "String"
+			},
+			{
+				"name": "bill_sql_server_license",
+				"type": "String"
+			},
+			{
+				"name": "__AuthType__",
+				"type": "String"
+			},
+			{
+				"name": "__AuthIdentity__",
+				"type": "String"
+			},
+			{
+				"name": "reserved_storage_iops",
+				"type": "String"
+			},
+			{
+				"name": "reserved_storage_throughput_mbps",
+				"type": "String"
+			},
+			{
+				"name": "is_mi_link_disaster_recovery_only",
+				"type": "String"
+			},
+			{
+				"name": "maintenance_policy_id",
+				"type": "String"
+			},
+			{
+				"name": "last_xact_outcome_cleanup_time",
+				"type": "String"
+			},
+			{
+				"name": "vldb_storage_connectivity_id",
+				"type": "String"
+			},
+			{
+				"name": "is_versioned_instance",
+				"type": "String"
+			},
+			{
+				"name": "is_azure_rbac_enabled",
+				"type": "String"
+			},
+			{
+				"name": "requested_aad_only_authentication",
+				"type": "String"
+			},
+			{
+				"name": "requested_external_admin_login_name",
+				"type": "String"
+			},
+			{
+				"name": "requested_external_admin_login_sid",
+				"type": "String"
+			},
+			{
+				"name": "requested_tenant_id",
+				"type": "String"
+			},
+			{
+				"name": "requested_user_provided_principal_type",
+				"type": "String"
+			},
+			{
+				"name": "identity_type",
+				"type": "String"
+			},
+			{
+				"name": "encryption_identity_id",
+				"type": "String"
+			},
+			{
+				"name": "regional_authentication_endpoint",
+				"type": "String"
+			},
+			{
+				"name": "federated_client_id",
+				"type": "String"
+			},
+			{
+				"name": "requested_federated_client_id",
+				"type": "String"
+			},
+			{
+				"name": "key_id",
+				"type": "String"
+			},
+			{
+				"name": "is_wcow_managed_server",
+				"type": "String"
+			},
+			{
+				"name": "requested_backup_storage_account_type",
+				"type": "String"
+			},
+			{
+				"name": "requested_service_principal_type",
+				"type": "String"
+			},
+			{
+				"name": "requested_managed_disks",
+				"type": "String"
+			},
+			{
+				"name": "internal_private_dns_record_name",
+				"type": "String"
+			},
+			{
+				"name": "internal_public_dns_record_name",
+				"type": "String"
+			},
+			{
+				"name": "version_edition",
+				"type": "String"
+			},
+			{
+				"name": "last_stop_time",
+				"type": "String"
+			},
+			{
+				"name": "last_start_time",
+				"type": "String"
+			},
+			{
+				"name": "stop_mode",
+				"type": "String"
+			},
+			{
+				"name": "is_freemium",
+				"type": "String"
+			}
+		]
+	}
+}

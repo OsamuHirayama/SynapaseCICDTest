@@ -1,0 +1,22 @@
+{
+	"name": "CalbeeDS02",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "CalbeeLinked01",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "DelimitedText",
+		"typeProperties": {
+			"location": {
+				"type": "AzureBlobFSLocation",
+				"fileSystem": "calbeetrgt01"
+			},
+			"columnDelimiter": ",",
+			"escapeChar": "\\",
+			"firstRowAsHeader": true,
+			"quoteChar": "\""
+		},
+		"schema": []
+	}
+}
