@@ -1,0 +1,61 @@
+{
+	"name": "Notebook 1",
+	"properties": {
+		"nbformat": 4,
+		"nbformat_minor": 2,
+		"bigDataPool": {
+			"referenceName": "osauhirspark01",
+			"type": "BigDataPoolReference"
+		},
+		"sessionProperties": {
+			"driverMemory": "28g",
+			"driverCores": 4,
+			"executorMemory": "28g",
+			"executorCores": 4,
+			"numExecutors": 2,
+			"conf": {
+				"spark.dynamicAllocation.enabled": "false",
+				"spark.dynamicAllocation.minExecutors": "2",
+				"spark.dynamicAllocation.maxExecutors": "2",
+				"spark.autotune.trackingId": "ef5949c8-3c60-49db-88bd-814550eeeb82"
+			}
+		},
+		"metadata": {
+			"saveOutput": true,
+			"enableDebugMode": false,
+			"kernelspec": {
+				"name": "synapse_pyspark",
+				"display_name": "python"
+			},
+			"language_info": {
+				"name": "python"
+			},
+			"a365ComputeOptions": {
+				"id": "/subscriptions/d1809bd2-c72a-4388-80fe-8984fb5d2dd6/resourceGroups/rg-osamuhir-japaneast-sql01/providers/Microsoft.Synapse/workspaces/osamuhirsynapsews/bigDataPools/osauhirspark01",
+				"name": "osauhirspark01",
+				"type": "Spark",
+				"endpoint": "https://osamuhirsynapsews.dev.azuresynapse.net/livyApi/versions/2019-11-01-preview/sparkPools/osauhirspark01",
+				"auth": {
+					"type": "AAD",
+					"authResource": "https://dev.azuresynapse.net"
+				},
+				"sparkVersion": "3.2",
+				"nodeCount": 10,
+				"cores": 4,
+				"memory": 28
+			},
+			"sessionKeepAliveTimeout": 30
+		},
+		"cells": [
+			{
+				"cell_type": "code",
+				"source": [
+					"from delta import *\r\n",
+					"\r\n",
+					"help(DeltaTable.optimize)"
+				],
+				"execution_count": null
+			}
+		]
+	}
+}

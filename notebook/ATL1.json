@@ -1,0 +1,123 @@
+{
+	"name": "ATL1",
+	"properties": {
+		"nbformat": 4,
+		"nbformat_minor": 2,
+		"bigDataPool": {
+			"referenceName": "osauhirspark01",
+			"type": "BigDataPoolReference"
+		},
+		"sessionProperties": {
+			"driverMemory": "28g",
+			"driverCores": 4,
+			"executorMemory": "28g",
+			"executorCores": 4,
+			"numExecutors": 2,
+			"conf": {
+				"spark.dynamicAllocation.enabled": "false",
+				"spark.dynamicAllocation.minExecutors": "2",
+				"spark.dynamicAllocation.maxExecutors": "2",
+				"spark.autotune.trackingId": "386e16c0-3219-4749-9cd0-888a5bc5f89c"
+			}
+		},
+		"metadata": {
+			"saveOutput": true,
+			"enableDebugMode": false,
+			"kernelspec": {
+				"name": "synapse_pyspark",
+				"display_name": "Synapse PySpark"
+			},
+			"language_info": {
+				"name": "python"
+			},
+			"a365ComputeOptions": {
+				"id": "/subscriptions/d1809bd2-c72a-4388-80fe-8984fb5d2dd6/resourceGroups/rg-osamuhir-japaneast-sql01/providers/Microsoft.Synapse/workspaces/osamuhirsynapsews/bigDataPools/osauhirspark01",
+				"name": "osauhirspark01",
+				"type": "Spark",
+				"endpoint": "https://osamuhirsynapsews.dev.azuresynapse.net/livyApi/versions/2019-11-01-preview/sparkPools/osauhirspark01",
+				"auth": {
+					"type": "AAD",
+					"authResource": "https://dev.azuresynapse.net"
+				},
+				"sparkVersion": "3.2",
+				"nodeCount": 10,
+				"cores": 4,
+				"memory": 28
+			},
+			"sessionKeepAliveTimeout": 30
+		},
+		"cells": [
+			{
+				"cell_type": "code",
+				"source": [
+					"# Load a file into a dataframe\r\n",
+					"df = spark.read.load('abfss://sststorage@adlsosamuhir02.dfs.core.windows.net/CustomerData.csv', format='csv', header=True)\r\n",
+					"df.show\r\n",
+					"# Save the dataframe as a delta table\r\n",
+					"delta_table_path = \"abfss://sststorage@adlsosamuhir02.dfs.core.windows.net/delta2\"\r\n",
+					"df.write.format(\"delta\").save(delta_table_path)"
+				],
+				"execution_count": 37
+			},
+			{
+				"cell_type": "code",
+				"metadata": {
+					"jupyter": {
+						"source_hidden": false,
+						"outputs_hidden": false
+					},
+					"nteract": {
+						"transient": {
+							"deleting": false
+						}
+					}
+				},
+				"source": [
+					"delta_table_path = \"abfss://sststorage@adlsosamuhir02.dfs.core.windows.net/delta1\"\r\n",
+					"df = spark.read.format(\"delta\").load(delta_table_path)\r\n",
+					"df.show"
+				],
+				"execution_count": null
+			},
+			{
+				"cell_type": "code",
+				"metadata": {
+					"jupyter": {
+						"source_hidden": false,
+						"outputs_hidden": false
+					},
+					"nteract": {
+						"transient": {
+							"deleting": false
+						}
+					}
+				},
+				"source": [
+					"#paths = \"abfss://sststorage@adlsosamuhir02.dfs.core.windows.net/delta1\"\r\n",
+					"paths = [\"abfss://sststorage@adlsosamuhir02.dfs.core.windows.net/delta1/part-00000-79919c48-dccd-40ea-b78b-1f55e9407c6a-c000.snappy.parquet\",\"abfss://sststorage@adlsosamuhir02.dfs.core.windows.net/delta2/part-00000-e77f2a49-6ba1-44fc-951f-1baca3b7a86d-c000.snappy.parquet\"]\r\n",
+					"df = spark.read.format(\"delta\").load(paths)"
+				],
+				"execution_count": 38
+			},
+			{
+				"cell_type": "code",
+				"metadata": {
+					"jupyter": {
+						"source_hidden": false,
+						"outputs_hidden": false
+					},
+					"nteract": {
+						"transient": {
+							"deleting": false
+						}
+					}
+				},
+				"source": [
+					"#paths = [\"abfss://sststorage@adlsosamuhir02.dfs.core.windows.net/delta1/\",\"abfss://sststorage@adlsosamuhir02.dfs.core.windows.net/delta2/\"]\r\n",
+					"df = spark.read.format(\"delta\").option(\"path\", [\"abfss://sststorage@adlsosamuhir02.dfs.core.windows.net/delta1/\",\"abfss://sststorage@adlsosamuhir02.dfs.core.windows.net/delta2/\"]).load()"
+				],
+				"execution_count": 41
+			}
+		]
+	}
+}
