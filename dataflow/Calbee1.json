@@ -163,7 +163,7 @@
 				"     limit: 100,",
 				"     ignoreNoFilesFound: false) ~> calbee01src",
 				"calbee01src sink(allowSchemaDrift: true,",
-				"     validateSchema: false,",
+				"     validateSchema: true,",
 				"     umask: 0022,",
 				"     preCommands: [],",
 				"     postCommands: [],",
