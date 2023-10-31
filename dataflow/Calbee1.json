@@ -23,6 +23,9 @@
 			],
 			"transformations": [],
 			"scriptLines": [
+				"parameters{",
+				"     FileName01 as string",
+				"}",
 				"source(output(",
 				"          TIMESTAMP as string,",
 				"          PreciseTimeStamp as string,",
@@ -166,6 +169,7 @@
 				"     validateSchema: true,",
 				"     format: 'delimited',",
 				"     fileSystem: 'calbeetrgt01',",
+				"     folderPath: ($FileName01),",
 				"     columnDelimiter: ',',",
 				"     escapeChar: '\\\\',",
 				"     quoteChar: '\\\"',",
