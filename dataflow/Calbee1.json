@@ -14,9 +14,9 @@
 			],
 			"sinks": [
 				{
-					"dataset": {
-						"referenceName": "CalbeeDS02",
-						"type": "DatasetReference"
+					"linkedService": {
+						"referenceName": "CalbeeLinked01",
+						"type": "LinkedServiceReference"
 					},
 					"name": "sink1"
 				}
@@ -164,6 +164,13 @@
 				"     ignoreNoFilesFound: false) ~> calbee01src",
 				"calbee01src sink(allowSchemaDrift: true,",
 				"     validateSchema: true,",
+				"     format: 'delimited',",
+				"     fileSystem: 'calbeetrgt01',",
+				"     columnDelimiter: ',',",
+				"     escapeChar: '\\\\',",
+				"     quoteChar: '\\\"',",
+				"     columnNamesAsHeader: false,",
+				"     filePattern:'',",
 				"     umask: 0022,",
 				"     preCommands: [],",
 				"     postCommands: [],",
