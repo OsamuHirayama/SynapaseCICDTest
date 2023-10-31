@@ -10,7 +10,6 @@
 		"typeProperties": {
 			"location": {
 				"type": "AzureBlobFSLocation",
-				"fileName": "hami.csv",
 				"fileSystem": "calbee01"
 			},
 			"columnDelimiter": ",",
