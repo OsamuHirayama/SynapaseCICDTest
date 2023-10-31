@@ -10,6 +10,8 @@
 		"typeProperties": {
 			"location": {
 				"type": "AzureBlobFSLocation",
+				"fileName": "*",
+				"folderPath": "*",
 				"fileSystem": "calbee01"
 			},
 			"columnDelimiter": ",",
