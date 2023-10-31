@@ -169,7 +169,6 @@
 				"     validateSchema: true,",
 				"     format: 'delimited',",
 				"     fileSystem: 'calbeetrgt01',",
-				"     folderPath: ($FileName01),",
 				"     columnDelimiter: ',',",
 				"     escapeChar: '\\\\',",
 				"     quoteChar: '\\\"',",
