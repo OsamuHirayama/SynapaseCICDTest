@@ -1,0 +1,7 @@
+{
+	"name": "AzureSqlDatabase957",
+	"properties": {
+		"privateLinkResourceId": "/subscriptions/d1809bd2-c72a-4388-80fe-8984fb5d2dd6/resourceGroups/rg-osamuhir-japaneast-sql01/providers/Microsoft.Sql/servers/osamuhirsqldb01",
+		"groupId": "sqlServer"
+	}
+}
