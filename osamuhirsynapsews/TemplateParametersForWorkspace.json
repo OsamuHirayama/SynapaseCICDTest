@@ -1,0 +1,60 @@
+{
+	"$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
+	"contentVersion": "1.0.0.0",
+	"parameters": {
+		"workspaceName": {
+			"value": "osamuhirsynapsews"
+		},
+		"AzureDataLakeStorage1_accountKey": {
+			"value": ""
+		},
+		"AzureSynapseAnalytics1_connectionString": {
+			"value": "Integrated Security=False;Encrypt=True;Connection Timeout=30;Data Source=osamuhirsynapsews.sql.azuresynapse.net;Initial Catalog=sstsql01"
+		},
+		"LeoDedicatedSQL_connectionString": {
+			"value": ""
+		},
+		"MAFFBlobStorage_connectionString": {
+			"value": ""
+		},
+		"SST_serverless01_connectionString": {
+			"value": "Integrated Security=False;Encrypt=True;Connection Timeout=30;Data Source=osamuhirsynapsews-ondemand.sql.azuresynapse.net;Initial Catalog=db1"
+		},
+		"calbeelink01_accountKey": {
+			"value": ""
+		},
+		"linkedService1_accountKey": {
+			"value": ""
+		},
+		"master_production_connectionString": {
+			"value": ""
+		},
+		"osamuhirsynapsews-WorkspaceDefaultSqlServer_connectionString": {
+			"value": "Integrated Security=False;Encrypt=True;Connection Timeout=30;Data Source=tcp:osamuhirsynapsews.sql.azuresynapse.net,1433;Initial Catalog=@{linkedService().DBName}"
+		},
+		"AzureDataLakeStorage1_properties_typeProperties_url": {
+			"value": "https://adlsosamuhir02.dfs.core.windows.net/"
+		},
+		"AzureDataLakeStorage2_properties_typeProperties_url": {
+			"value": "https://adlsosamuhir02.dfs.core.windows.net/"
+		},
+		"AzureDataLakeStorage3_properties_typeProperties_url": {
+			"value": "https://adlsosamuhir02.dfs.core.windows.net/"
+		},
+		"LeoLink19_properties_typeProperties_serviceEndpoint": {
+			"value": "https://adlsosamuhir02.blob.core.windows.net/"
+		},
+		"calbeelink01_properties_typeProperties_url": {
+			"value": "https://adlsosamuhir02.dfs.core.windows.net/"
+		},
+		"leo16stg_properties_typeProperties_serviceEndpoint": {
+			"value": "https://adlsosamuhir02.blob.core.windows.net/"
+		},
+		"linkedService1_properties_typeProperties_url": {
+			"value": "https://adlsosamuhir02.dfs.core.windows.net/"
+		},
+		"osamuhirsynapsews-WorkspaceDefaultStorage_properties_typeProperties_url": {
+			"value": "https://adlsosamuhir02.dfs.core.windows.net"
+		}
+	}
+}
