@@ -1,0 +1,17 @@
+{
+	"name": "NS_SCHEDULE01",
+	"properties": {
+		"annotations": [],
+		"runtimeState": "Stopped",
+		"pipelines": [],
+		"type": "ScheduleTrigger",
+		"typeProperties": {
+			"recurrence": {
+				"frequency": "Minute",
+				"interval": 15,
+				"startTime": "2024-04-01T23:44:00",
+				"timeZone": "Tokyo Standard Time"
+			}
+		}
+	}
+}
