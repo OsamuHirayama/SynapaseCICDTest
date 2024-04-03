@@ -2,7 +2,7 @@
 	"name": "TWT_NS_Parent0403",
 	"properties": {
 		"annotations": [],
-		"runtimeState": "Stopped",
+		"runtimeState": "Started",
 		"pipeline": {
 			"pipelineReference": {
 				"referenceName": "NS01",
