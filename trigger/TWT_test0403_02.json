@@ -1,0 +1,29 @@
+{
+	"name": "TWT_test0403_02",
+	"properties": {
+		"annotations": [],
+		"runtimeState": "Stopped",
+		"type": "TumblingWindowTrigger",
+		"typeProperties": {
+			"frequency": "Minute",
+			"interval": 10,
+			"startTime": "2024-04-03T08:09:00Z",
+			"delay": "00:00:00",
+			"maxConcurrency": 50,
+			"retryPolicy": {
+				"intervalInSeconds": 30
+			},
+			"dependsOn": [
+				{
+					"type": "TumblingWindowTriggerDependencyReference",
+					"size": "0.00:10:00",
+					"offset": "-0.00:09:00",
+					"referenceTrigger": {
+						"referenceName": "TWT_test0403_01",
+						"type": "TriggerReference"
+					}
+				}
+			]
+		}
+	}
+}
