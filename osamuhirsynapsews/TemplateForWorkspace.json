@@ -25244,7 +25244,7 @@
 			]
 		},
 		{
-			"name": "[concat(parameters('workspaceName'), '/TWT_NS_Parent0403')]",
+			"name": "[concat(parameters('workspaceName'), '/TWT_test0403_01')]",
 			"type": "Microsoft.Synapse/workspaces/triggers",
 			"apiVersion": "2019-06-01-preview",
 			"properties": {
@@ -25260,8 +25260,8 @@
 				"type": "TumblingWindowTrigger",
 				"typeProperties": {
 					"frequency": "Minute",
-					"interval": 15,
-					"startTime": "2024-04-03T04:55:00Z",
+					"interval": 10,
+					"startTime": "2024-04-03T07:50:00Z",
 					"delay": "00:00:00",
 					"maxConcurrency": 50,
 					"retryPolicy": {
@@ -25272,90 +25272,6 @@
 			},
 			"dependsOn": [
 				"[concat(variables('workspaceId'), '/pipelines/NS01')]"
-			]
-		},
-		{
-			"name": "[concat(parameters('workspaceName'), '/TWT_NS_Child_hourly')]",
-			"type": "Microsoft.Synapse/workspaces/triggers",
-			"apiVersion": "2019-06-01-preview",
-			"properties": {
-				"annotations": [],
-				"runtimeState": "Started",
-				"pipeline": {
-					"pipelineReference": {
-						"referenceName": "NS02",
-						"type": "PipelineReference"
-					},
-					"parameters": {}
-				},
-				"type": "TumblingWindowTrigger",
-				"typeProperties": {
-					"frequency": "Minute",
-					"interval": 60,
-					"startTime": "2024-04-03T04:56:00Z",
-					"delay": "00:00:00",
-					"maxConcurrency": 50,
-					"retryPolicy": {
-						"intervalInSeconds": 30
-					},
-					"dependsOn": [
-						{
-							"type": "TumblingWindowTriggerDependencyReference",
-							"size": "0.01:00:00",
-							"offset": "-0.00:01:00",
-							"referenceTrigger": {
-								"referenceName": "TWT_NS_Parent0403",
-								"type": "TriggerReference"
-							}
-						}
-					]
-				}
-			},
-			"dependsOn": [
-				"[concat(variables('workspaceId'), '/pipelines/NS02')]",
-				"[concat(variables('workspaceId'), '/triggers/TWT_NS_Parent0403')]"
-			]
-		},
-		{
-			"name": "[concat(parameters('workspaceName'), '/TWT_NS_Child_15min')]",
-			"type": "Microsoft.Synapse/workspaces/triggers",
-			"apiVersion": "2019-06-01-preview",
-			"properties": {
-				"annotations": [],
-				"runtimeState": "Started",
-				"pipeline": {
-					"pipelineReference": {
-						"referenceName": "NS03",
-						"type": "PipelineReference"
-					},
-					"parameters": {}
-				},
-				"type": "TumblingWindowTrigger",
-				"typeProperties": {
-					"frequency": "Minute",
-					"interval": 15,
-					"startTime": "2024-04-03T04:57:00Z",
-					"delay": "00:00:00",
-					"maxConcurrency": 50,
-					"retryPolicy": {
-						"intervalInSeconds": 30
-					},
-					"dependsOn": [
-						{
-							"type": "TumblingWindowTriggerDependencyReference",
-							"size": "0.00:15:00",
-							"offset": "-0.00:02:00",
-							"referenceTrigger": {
-								"referenceName": "TWT_NS_Parent0403",
-								"type": "TriggerReference"
-							}
-						}
-					]
-				}
-			},
-			"dependsOn": [
-				"[concat(variables('workspaceId'), '/pipelines/NS03')]",
-				"[concat(variables('workspaceId'), '/triggers/TWT_NS_Parent0403')]"
 			]
 		}
 	]
