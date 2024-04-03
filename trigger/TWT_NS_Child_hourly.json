@@ -2,7 +2,7 @@
 	"name": "TWT_NS_Child_hourly",
 	"properties": {
 		"annotations": [],
-		"runtimeState": "Stopped",
+		"runtimeState": "Started",
 		"pipeline": {
 			"pipelineReference": {
 				"referenceName": "NS02",
