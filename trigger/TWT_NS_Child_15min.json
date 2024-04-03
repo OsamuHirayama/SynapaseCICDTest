@@ -2,7 +2,7 @@
 	"name": "TWT_NS_Child_15min",
 	"properties": {
 		"annotations": [],
-		"runtimeState": "Stopped",
+		"runtimeState": "Started",
 		"pipeline": {
 			"pipelineReference": {
 				"referenceName": "NS03",
