@@ -2,7 +2,7 @@
 	"name": "TWT_test0403_03",
 	"properties": {
 		"annotations": [],
-		"runtimeState": "Started",
+		"runtimeState": "Stopped",
 		"pipeline": {
 			"pipelineReference": {
 				"referenceName": "NS03",
