@@ -16,16 +16,21 @@
 				"userProperties": [],
 				"typeProperties": {
 					"source": {
-						"type": "SqlDWSource",
-						"queryTimeout": "02:00:00",
-						"isolationLevel": "ReadCommitted",
-						"partitionOption": "None"
+						"type": "DelimitedTextSource",
+						"storeSettings": {
+							"type": "AzureBlobFSReadSettings",
+							"recursive": true,
+							"enablePartitionDiscovery": false
+						},
+						"formatSettings": {
+							"type": "DelimitedTextReadSettings"
+						}
 					},
 					"sink": {
 						"type": "DelimitedTextSink",
 						"storeSettings": {
 							"type": "AzureBlobStorageWriteSettings",
-							"copyBehavior": "PreserveHierarchy"
+							"copyBehavior": "MergeFiles"
 						},
 						"formatSettings": {
 							"type": "DelimitedTextWriteSettings",
@@ -45,7 +50,7 @@
 				},
 				"inputs": [
 					{
-						"referenceName": "AzureSynapseAnalyticsTable1",
+						"referenceName": "DelimitedText1",
 						"type": "DatasetReference"
 					}
 				],
