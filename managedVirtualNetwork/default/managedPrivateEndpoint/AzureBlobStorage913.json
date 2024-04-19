@@ -1,0 +1,7 @@
+{
+	"name": "AzureBlobStorage913",
+	"properties": {
+		"privateLinkResourceId": "/subscriptions/d1809bd2-c72a-4388-80fe-8984fb5d2dd6/resourceGroups/osamuhircalbeeblob/providers/Microsoft.Storage/storageAccounts/osamuhircalbeeblob",
+		"groupId": "blob"
+	}
+}
